@@ -1,0 +1,51 @@
+README
+
+Assinturas das funções disponiveis (pilha_interface.h)
+
+```
+typedef struct Stack *pPilha, **ppPilha;
+
+struct Stack* createStack(unsigned capacity);
+
+// Função que empilha um item na pilha
+void push(struct Stack* stack, int item);
+
+// Função que desempilha um item da pilha
+int pop(struct Stack* stack);
+
+// Funcao que retorna o topo da pilha, sem remove-lo.
+int top(struct Stack* stack);
+
+```
+
+Usando e Compilando
+
+Crie seu arquivo aplicacao.c, usando as funções conforme a assinatura, por exemplo:
+
+int main()
+{
+    //Crie sua pilha
+    struct Stack* stack = createStack(100);
+
+    //empilhe um elemento no topo
+    push(...);
+
+    //desempilhe um elemento no topo
+    pop(...);
+
+    //Obtenha o item do topo
+    printf("Item no topo: %d \n", top(...));
+
+    return 0;
+}
+
+
+Execute os comandos a seguir:
+
+    -  make
+    - ./aplicacao
+
+
+
+E sua main com a sequencia de empilhamento, desimpilhamento e visualização será executada.
+
