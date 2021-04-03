@@ -1,20 +1,18 @@
 README
 
-Assinturas das funções disponiveis (pilha_interface.h)
+Assinturas das funções disponiveis (fila_interface.h)
 
 ```
-typedef struct Stack *pPilha, **ppPilha;
 
-struct Stack* createStack(unsigned capacity);
+Fila* criar(int tamanhoDados, int *resultado);
 
-// Função que empilha um item na pilha
-void push(struct Stack* stack, int item);
+void enfileirar(Fila *f, void *elemento, int *resultado);
 
-// Função que desempilha um item da pilha
-int pop(struct Stack* stack);
+void* desenfileirar(Fila *f, int *resultado);
 
-// Funcao que retorna o topo da pilha, sem remove-lo.
-int top(struct Stack* stack);
+void destruir(Fila *f, int *resultado);
+
+//Requisito: alocar um item (tamanho de dados) por vez
 
 ```
 
@@ -24,26 +22,14 @@ Crie seu arquivo aplicacao.c, usando as funções conforme a assinatura, por exe
 
 int main()
 {
-    //Crie sua pilha
-    struct Stack* stack = createStack(100);
 
-    //empilhe um elemento no topo
-    push(...);
-
-    //desempilhe um elemento no topo
-    pop(...);
-
-    //Obtenha o item do topo
-    printf("Item no topo: %d \n", top(...));
-
-    return 0;
 }
 
 
 Execute os comandos a seguir:
 
     -  make
-    - ./aplicacao
+    - ./main
 
 
 
