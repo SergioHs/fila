@@ -42,11 +42,17 @@ void* desenfileirar(Fila *f, int *resultado){
         if(f->fim->ant == f->inicio){
             //pilha com só 1 elemento
             //nodeFila* auxiliar = f->inicio;
-            f->inicio = f->inicio->ant;
+            //free?
+
+            f->inicio = NULL;
+            f->fim = NULL;
             *resultado = 1;
+
         } else {
             //pilha com varios elementos
             //nodeFila* auxiliar = f->inicio;
+            //free?
+
             f->inicio = f->inicio->ant;
             *resultado = 1;
         }
@@ -58,5 +64,7 @@ void* desenfileirar(Fila *f, int *resultado){
 void destruir(Fila *f, int *resultado){
 
     *resultado = 0;
+    return;
     
 }
+            //nodeFila* auxiliar = f->inicio;

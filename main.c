@@ -9,13 +9,22 @@ void imprimirFila(Fila *f){
         printf("\n Print - Elemento unico: %d \n", *dado);
 
     } else {
-        //while(f->fim != f->inicio){
+        //while(){
+
+            //Fila* objeto = f->inicio->ant;
         
+            //Fila* objeto2 = f->inicio->ant;
+
             char* dado = f->inicio->dados;
             printf("\n Print - Elemento 1: %d \n", *dado);
 
             char* dado1 = f->inicio->ant->dados;
             printf("\n Print - Elemento 2: %d \n", *dado1);
+
+            char* dado2 = f->inicio->ant->ant->dados;
+
+            printf("\n Print - Elemento 3: %d \n", *dado2);
+
 
 
         //}   
@@ -44,9 +53,16 @@ int main()
     enfileirar(myFila, elemento2, &resultadoEnfileirar2);
     printf("\n Enfileirado?: %d \n", resultadoEnfileirar2);
 
-    int resultadoDesenfileirar;
-    desenfileirar(myFila, &resultadoDesenfileirar);
-    printf("\n Desenfileirado?: %d \n", resultadoDesenfileirar);
+    //Enfileirando 3
+    int resultadoEnfileirar3;
+    int* elemento3 = malloc(sizeof(int));
+    *elemento3 = 3;
+    enfileirar(myFila, elemento3, &resultadoEnfileirar3);
+    printf("\n Enfileirado?: %d \n", resultadoEnfileirar3);
+
+    // int resultadoDesenfileirar;
+    // desenfileirar(myFila, &resultadoDesenfileirar);
+    // printf("\n Desenfileirado?: %d \n", resultadoDesenfileirar);
 
     imprimirFila(myFila);
 
