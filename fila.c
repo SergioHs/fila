@@ -39,32 +39,53 @@ void enfileirar(Fila *f, void *elemento, int *resultado){
 void* desenfileirar(Fila *f, int *resultado){
 
     if(f->inicio != NULL){
-        if(f->fim->ant == f->inicio){
-            //pilha com só 1 elemento
-            //nodeFila* auxiliar = f->inicio;
-            //free?
+        void *dados = f->inicio->dados;
 
+        if(f->fim == f->inicio){
+            free(f->inicio);
             f->inicio = NULL;
             f->fim = NULL;
             *resultado = 1;
 
         } else {
-            //pilha com varios elementos
-            //nodeFila* auxiliar = f->inicio;
-            //free?
-
-            f->inicio = f->inicio->ant;
+            f->fim->ant = f->inicio->ant;
+            free(f->inicio);
+            f->inicio = f->fim->ant;
             *resultado = 1;
         }
+        return dados;
     } else {
         *resultado = 0;
+        return NULL;
     }
 }
 
 void destruir(Fila *f, int *resultado){
 
-    *resultado = 0;
-    return;
+    int ultimo = 0;
+
+    if(f->inicio == NULL){
+        *resultado = 0;
+        return;
+    }
     
+    nodeFila *atual = f->inicio;
+
+    do{
+        nodeFila *paraExcluir = atual;
+        atual = atual->ant;
+        f->fim->ant = atual;
+    
+        if(paraExcluir == atual){
+            ultimo = 1;
+        }
+        free(paraExcluir->dados);
+        free(paraExcluir);
+
+    } while (ultimo != 1);
+
+    free(f);
+
+    *resultado = 1;
+
 }
-            //nodeFila* auxiliar = f->inicio;
